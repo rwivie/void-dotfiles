@@ -35,12 +35,15 @@ alias iftop-eth="sudo iftop -i enp7s0"
 #--- misc aliases
 alias clock="tty-clock -sSctB -C 6"
 alias obxprop='xprop | grep "^_OB_APP"'
-alias vkpurge="sudo vkpurge rm all"
+alias vkpurgeall="sudo vkpurge rm all"
 alias sued="sudo -i nano"
 alias thunar="dbus-launch thunar"
 
 #==== for git dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+#==== get windows coords
+alias xpos="xwininfo -id $(xdotool getactivewindow)"
 
 #==== auto cd
 shopt -s autocd
@@ -56,3 +59,4 @@ if [[ $STICKY_NOTE ]]; then
   cat "$HOME/tmp/sticky-note"
   return
 fi
+export PATH="$PATH:$HOME/.spicetify"
