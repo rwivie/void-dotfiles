@@ -84,7 +84,19 @@ else
 					*Lock) i3lock-arc-dark.sh ;;
 					*Reboot) loginctl reboot ;;
 					*Shutdown) loginctl poweroff ;;
-					*Logout) i3-msg "exit"  ;;
+					*Logout) i3-msg "exit" ;;
+				esac
+				;;
+			-p|--power)
+				case "$(rofi -sep "|" -dmenu -i -p 'System' -width 20 -hide-scrollbar \
+                                        -theme ~/.config/rofi/themes/nord.rasi \
+                                        -theme-str '#window { width: 200px; }' -theme-str '#window { location: south east; }' -theme-str 'listview { fixed-height: false; }' \
+                                        -theme-str 'listview { lines: 4; }' -theme-str 'listview { columns: 1; }' \
+					-line-padding 4 -padding 5 -lines 4 <<< " Lock| Logout| Reboot| Shutdown")" in
+					*Lock) i3lock-arc-dark.sh ;;
+					*Reboot) loginctl reboot ;;
+					*Shutdown) loginctl poweroff ;;
+					*Logout) i3-msg "exit" ;;
 				esac
 				;;
 			*)
